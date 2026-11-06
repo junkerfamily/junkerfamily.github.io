@@ -92,7 +92,7 @@ window.PORTFOLIO = {
       blurb: "Would moving money out of an IRA save money, short and long term?", tags: ["finance", "calculator"], added: "2025-09" },
     { id: "pictocalc", name: "PictoCalc", url: "https://pictocalc.pages.dev", repo: "https://github.com/junkerfamily/PictoCalc", group: "tools", host: "cloudflare",
       blurb: "Tap the pictures, get the total — an order calculator for temporary sales help.", tags: ["calculator", "accessibility", "point of sale"], added: "2026-09",
-      todo: "Admin is locked until you set a password: npx wrangler pages secret put ADMIN_PASSWORD --project-name pictocalc" },
+      todo: "Check prices in Admin (moved from Railway; Railway-only edits weren't carried over)." },
     { id: "superplow", name: "SuperPlow", url: "https://junkerfamily.github.io/SuperPlow/", repo: "https://github.com/junkerfamily/SuperPlow", group: "tools", host: "github", private: true,
       blurb: "Snowplow helper and tracker.", tags: ["snow", "tracker"], added: "2026-09" },
     { id: "myfavorites", name: "My Favorites", url: "https://junkerfamily.github.io/MyFavorites/", repo: "https://github.com/junkerfamily/MyFavorites", group: "tools", host: "github",
