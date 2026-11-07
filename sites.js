@@ -44,6 +44,8 @@ window.PORTFOLIO = {
       blurb: "Murder-mystery escape room on a frontier Main Street.", tags: ["western", "mystery", "puzzle"], added: "2026-11" },
     { id: "scrooges-last-christmas", name: "Scrooge's Last Christmas", url: "https://scrooges-last-christmas.pages.dev", group: "escape", host: "cloudflare",
       blurb: "Escape room built on Dickens's A Christmas Carol.", tags: ["christmas", "puzzle"], added: "2026-11" },
+    { id: "escape-the-vexthal", name: "Escape the Vex'Thal", url: "https://escape-aliencraft.pages.dev", group: "escape", host: "cloudflare",
+      blurb: "Alien abduction escape room — decode their glyphs and hack the captain's password.", tags: ["aliens", "space", "sci-fi", "puzzle"], added: "2026-11" },
     { id: "escape-room-trainer", name: "Escape Room Trainer", url: "https://junkerfamily.github.io/escape-room-trainer/", repo: "https://github.com/junkerfamily/escape-room-trainer", group: "escape", host: "github",
       blurb: "Quick-fire training: ciphers, locks, strategy and themes, with puzzles and hints.", tags: ["puzzle", "ciphers", "training"], added: "2026-11" },
 
