@@ -84,6 +84,8 @@ window.PORTFOLIO = {
     // ── Home & Family ──
     { id: "ez-message", name: "EZ-Message", url: "https://junkerfamily.github.io/EZ_Message/", repo: "https://github.com/junkerfamily/EZ_Message", group: "family", host: "github", private: true,
       blurb: "Simple messaging made for my special-needs son.", tags: ["messaging", "accessibility"], star: true, added: "2026-10" },
+    { id: "bp-journal", name: "BP Journal", url: "https://bp-journal.junkerfamily.workers.dev", repo: "https://github.com/junkerfamily/BloodPressureJournal", group: "family", host: "cloudflare", private: true,
+      blurb: "Snap a photo of your blood pressure monitor — AI reads the numbers, then track the trend.", tags: ["health", "blood pressure", "camera", "ai", "chart"], added: "2026-11" },
     { id: "honeydo", name: "HoneyDo", url: "https://junkerfamily.github.io/HoneyDo/", repo: "https://github.com/junkerfamily/HoneyDo", group: "family", host: "github", private: true,
       blurb: "Quick and easy honey-do list for couples.", tags: ["tasks"], added: "2026-01" },
     { id: "eventmaker", name: "EventMaker", url: "https://junkerfamily.github.io/EventMaker/", repo: "https://github.com/junkerfamily/EventMaker", group: "family", host: "github",
