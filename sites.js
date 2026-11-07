@@ -15,6 +15,8 @@
 //    star     true to feature it at the top
 //    todo     a note to yourself (shown only in My view)
 //    added    "YYYY-MM" roughly when it was made (used for sorting)
+//    frame    optional. true = open inside the portfolio with a "Portfolio" back bar,
+//             false = open in a new tab. Default: true for junkerfamily.github.io apps.
 //
 //  After adding a site, run:  ./tools/thumbs.sh <id>   to grab its thumbnail.
 // ─────────────────────────────────────────────────────────────

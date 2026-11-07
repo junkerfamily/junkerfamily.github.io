@@ -230,6 +230,26 @@
   }
   .toast.on { opacity: 1; transform: translate(-50%, 0); }
   mark { background: color-mix(in srgb, var(--accent) 28%, transparent); color: inherit; border-radius: 3px; }
+
+  /* ── App viewer: keeps a slim portfolio bar on top while an app runs ── */
+  .viewer { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; background: var(--bg); }
+  .viewer[hidden] { display: none; }
+  .vbar {
+    flex: none; display: flex; align-items: center; gap: 8px;
+    padding: env(safe-area-inset-top) max(10px, env(safe-area-inset-right)) 0 max(10px, env(safe-area-inset-left));
+    min-height: calc(44px + env(safe-area-inset-top)); background: var(--card); border-bottom: 1px solid var(--line);
+  }
+  .vbar .vback {
+    all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; height: 34px; padding: 0 12px 0 8px;
+    border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: 14px;
+  }
+  .vbar .vtitle { flex: 1; min-width: 0; text-align: center; font-weight: 600; font-size: 14.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .vbar .vext { all: unset; cursor: pointer; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 999px; color: var(--ink-2); }
+  .vbar .vext:hover, .vbar .vext:focus-visible { color: var(--accent); background: var(--bg-2); }
+  .viewer iframe { flex: 1; width: 100%; border: 0; background: #fff; }
+  body.viewing { overflow: hidden; }
+  /* On a home-screen icon a "new tab" would take over the window again, so hide that button there. */
+  @media (display-mode: standalone) { .vbar .vext { visibility: hidden; } }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -282,6 +302,20 @@
 
 <div class="toast" id="toast"></div>
 
+<div class="viewer" id="viewer" hidden>
+  <div class="vbar">
+    <button class="vback" id="vback" aria-label="Back to portfolio">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Portfolio
+    </button>
+    <div class="vtitle" id="vtitle"></div>
+    <a class="vext" id="vext" href="#" target="_blank" rel="noopener" title="Open in its own tab" aria-label="Open in its own tab">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+    </a>
+  </div>
+  <iframe id="vframe" title="App" allow="fullscreen; autoplay; clipboard-read; clipboard-write; microphone; camera; geolocation; speaker-selection" allowfullscreen></iframe>
+</div>
+
 <script src="sites.js"></script>
 <script>
 (() => {
@@ -311,6 +345,11 @@
   const domain = (u) => { try { const x = new URL(u); return (x.host + x.pathname).replace(/\/$/, ''); } catch { return ''; } };
   const hue = (s) => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
   const initials = (n) => n.replace(/^(the|escape (from|the)?)\s+/i, '').split(/[\s-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+
+  // Apps on the portfolio's own address open inside the viewer (with a "Portfolio" back button),
+  // because on an iPhone home-screen icon they'd otherwise take over the window with no way back.
+  // Other addresses open in a new tab as before. Set frame: true / false on a site to override.
+  const framed = (s) => { if (typeof s.frame === 'boolean') return s.frame; try { return new URL(s.url, location.href).origin === location.origin; } catch { return false; } };
 
   const visible = () => P.sites.filter((s) => state.me || (!s.hidden && s.url));
 
@@ -342,7 +381,7 @@
     const todo = state.me && s.todo ? `<p class="blurb" style="color:var(--accent)">To-do: ${esc(s.todo)}</p>` : '';
     const ownerLinks = state.me && s.repo ? `<span class="owner-links"><span class="code-link" role="link" tabindex="0" data-href="${esc(s.repo)}">Code ↗</span></span>` : '';
     return `
-      <${tag} class="card${off && state.me ? ' off' : ''}" ${attrs} data-id="${esc(s.id)}">
+      <${tag} class="card${off && state.me ? ' off' : ''}" ${attrs} data-id="${esc(s.id)}"${live && framed(s) ? ' data-frame' : ''}>
         <div class="thumb" style="background:linear-gradient(135deg,hsl(${h} 62% 58%),hsl(${(h + 40) % 360} 58% 42%))">
           <div class="ph">${esc(initials(s.name))}</div>
           <img src="thumbs/${esc(s.id)}.jpg" alt="" loading="lazy" onerror="this.remove()" onload="this.previousElementSibling.remove()">
@@ -493,7 +532,36 @@
     try { await navigator.clipboard.writeText(url); toast('Link copied — visitors see only shared, live sites.'); }
     catch { prompt('Copy this link:', url); }
   });
+  // ── App viewer ──
+  let lastCard = null;
+  function openViewer(s, from) {
+    lastCard = from;
+    $('#vtitle').textContent = s.name;
+    $('#vext').href = s.url;
+    $('#vframe').src = s.url;
+    $('#viewer').hidden = false;
+    document.body.classList.add('viewing');
+    document.title = `${s.name} · ${P.owner}`;
+  }
+  function closeViewer() {
+    if ($('#viewer').hidden) return;
+    $('#viewer').hidden = true;
+    $('#vframe').src = 'about:blank';
+    document.body.classList.remove('viewing');
+    document.title = `${P.owner} · Portfolio`;
+    if (lastCard && document.contains(lastCard)) lastCard.focus({ preventScroll: true });
+  }
+  $('#main').addEventListener('click', (e) => {
+    const a = e.target.closest('a.card[data-frame]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const s = P.sites.find((x) => x.id === a.dataset.id); if (!s) return;
+    e.preventDefault(); openViewer(s, a);
+  });
+  $('#vback').addEventListener('click', closeViewer);
+  $('#vext').addEventListener('click', () => setTimeout(closeViewer, 0));
+
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !$('#viewer').hidden) { closeViewer(); return; }
     if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); }
     if (e.key === 'Escape' && document.activeElement === $('#q')) { $('#q').value = ''; state.q = ''; render(); $('#q').blur(); }
   });
