@@ -408,8 +408,8 @@
 
   function section(title, list, note = '', cls = '') {
     if (!list.length) return '';
-    // While searching, every section stays open so nothing is missed.
-    const closed = !state.q && state.closed.includes(title);
+    // While searching or filtering by a chip, every section stays open so nothing looks empty.
+    const closed = !state.q && state.group === 'all' && state.closed.includes(title);
     return `<section class="${closed ? 'closed' : ''}">
       <button class="sec-head" data-sec="${esc(title)}" aria-expanded="${!closed}">
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -518,7 +518,7 @@
   $('#main').addEventListener('click', openCode, true);
   // Fold / unfold a section without re-rendering, so the animation plays.
   $('#main').addEventListener('click', (e) => {
-    const h = e.target.closest('[data-sec]'); if (!h || state.q) return;
+    const h = e.target.closest('[data-sec]'); if (!h || state.q || state.group !== 'all') return;
     const sec = h.closest('section'), t = h.dataset.sec;
     const closing = !sec.classList.contains('closed');
     sec.classList.toggle('closed', closing);
