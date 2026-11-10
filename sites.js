@@ -74,6 +74,8 @@ window.PORTFOLIO = {
       blurb: "The Saving Sabrina sequel: row to three islands past coconuts and trolls to find great-grandmother Celia's treasure. Needs the secret word from the map in the tower.", tags: ["puzzle", "princess", "islands", "sokoban"], added: "2026-11" },
     { id: "gear-world", name: "Gear World", url: "https://junkerfamily.github.io/gear-world/", repo: "https://github.com/junkerfamily/gear-world", group: "games", host: "github",
       blurb: "Place the right-sized gears to power a windmill, an oil rig and a clock tower.", tags: ["puzzle", "gears", "machines"], added: "2026-11" },
+    { id: "twin-drop", name: "Twin Drop", url: "https://junkerfamily.github.io/twin-drop/", repo: "https://github.com/junkerfamily/twin-drop", group: "games", host: "github",
+      blurb: "Two falling-block wells at once, one hand each. Needs a keyboard.", tags: ["blocks", "keyboard", "two-handed"], added: "2026-11" },
     { id: "greed", name: "Greed", url: "https://junkerfamily.github.io/Greed/", repo: "https://github.com/junkerfamily/Greed", group: "games", host: "github", private: true,
       blurb: "Chase the leprechaun's gold — just don't lose it all.", tags: ["luck", "gold"], added: "2026-10" },
     { id: "wordfall", name: "Worder Fall", url: "https://junkerfamily.github.io/Wordfall/", repo: "https://github.com/junkerfamily/Wordfall", group: "games", host: "github", private: true,
