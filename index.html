@@ -102,6 +102,8 @@
   .chip:hover { color: var(--ink); border-color: var(--ink-3); }
   .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .chip .n { font-size: 11.5px; opacity: .6; }
+  .chip.daily { border-color: var(--accent); color: var(--accent); }
+  .chip.daily[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
   .tools { display: flex; gap: 6px; margin-left: auto; }
   select.chip { appearance: none; padding-right: 28px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238f877d' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 11px center; }
   .icon-btn { width: 34px; padding: 0; justify-content: center; }
@@ -330,10 +332,13 @@
   if (location.hash === '#me') { store.set('me', true); history.replaceState(null, '', location.pathname + location.search); }
   if (location.hash === '#public') { store.set('me', false); history.replaceState(null, '', location.pathname + location.search); }
 
+  // #daily opens straight to the Daily chip (handy as a home-screen bookmark).
+  const startDaily = location.hash === '#daily';
+
   const state = {
     me: store.get('me', false),
     q: '',
-    group: 'all',
+    group: startDaily ? 'daily' : 'all',
     sort: store.get('sort', 'group'),
     layout: store.get('layout', 'grid'),
     theme: store.get('theme', null),
@@ -360,9 +365,10 @@
   }
 
   function matches(s) {
-    if (state.group !== 'all' && s.group !== state.group) return false;
+    if (state.group === 'daily') { if (!s.daily) return false; }
+    else if (state.group !== 'all' && s.group !== state.group) return false;
     if (!state.q) return true;
-    const hay = [s.name, s.blurb, s.url, HOSTS[s.host], ...(s.tags || [])].join(' ').toLowerCase();
+    const hay = [s.name, s.blurb, s.url, HOSTS[s.host], ...(s.tags || []), s.daily ? 'daily' : ''].join(' ').toLowerCase();
     return state.q.toLowerCase().split(/\s+/).every((w) => hay.includes(w));
   }
 
@@ -420,7 +426,11 @@
     const list = all.filter(matches);
     let html = '';
 
-    if (state.sort === 'group') {
+    if (state.group === 'daily') {
+      // One flat list across every group.
+      const daily = [...list].sort((a, b) => a.name.localeCompare(b.name));
+      html += section('Daily', daily, 'The things you reach for every day.');
+    } else if (state.sort === 'group') {
       const featured = list.filter((s) => s.star && s.url && (!s.hidden || state.me));
       if (state.group === 'all' && !state.q && featured.length && state.layout === 'grid') {
         html += section('Favorites', featured, '', 'featured');
@@ -450,9 +460,10 @@
 
     // chips
     const counts = Object.fromEntries(P.groups.map((g) => [g.id, all.filter((s) => s.group === g.id).length]));
-    $('#chips').innerHTML = [{ id: 'all', name: 'All', n: all.length }, ...P.groups.map((g) => ({ ...g, n: counts[g.id] }))]
+    const dailyN = all.filter((s) => s.daily).length;
+    $('#chips').innerHTML = [{ id: 'all', name: 'All', n: all.length }, { id: 'daily', name: '☀︎ Daily', n: dailyN, cls: ' daily' }, ...P.groups.map((g) => ({ ...g, n: counts[g.id] }))]
       .filter((g) => g.n)
-      .map((g) => `<button class="chip" data-g="${g.id}" aria-pressed="${state.group === g.id}">${esc(g.name)} <span class="n">${g.n}</span></button>`).join('');
+      .map((g) => `<button class="chip${g.cls || ''}" data-g="${g.id}" aria-pressed="${state.group === g.id}">${esc(g.name)} <span class="n">${g.n}</span></button>`).join('');
 
     // stats
     const live = all.filter((s) => s.url);

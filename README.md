@@ -3,6 +3,7 @@
 One page listing everything I've built, grouped, with thumbnails.
 
 - **Edit `sites.js`** to add, remove, regroup or describe sites. That's the only file you need to touch.
+- **Daily:** add `daily: true` to any site in `sites.js` and it shows under the **☀︎ Daily** chip, no matter which group it's in. Open the page with `#daily` on the end (good for a home-screen icon) to land straight there.
 - **Thumbnails:** `./tools/thumbs.sh` grabs screenshots for any live site that doesn't have one yet (`--all` to redo every site, or pass ids like `./tools/thumbs.sh kidkalc`). Needs Google Chrome.
 - **My view vs. shared view:** open the page with `#me` at the end of the address to see everything: sites that aren't live yet, ones marked `hidden`, private-repo locks, Code links and to-do notes. The device remembers it. Use `#public` (or the "See shared view" button) to switch back. The **Share** button always copies the plain link.
   - This only hides things on the page. Anyone who reads `sites.js` can still see every entry.

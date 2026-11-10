@@ -13,6 +13,8 @@
 //    private  true if the repo is private (shows a lock in My view)
 //    hidden   true to keep it out of the shared view (still shows in My view)
 //    star     true to feature it at the top
+//    daily    true for things you use every day — they show under the "Daily" chip,
+//             whatever group they're in. (Open the page with #daily to land there.)
 //    todo     a note to yourself (shown only in My view)
 //    added    "YYYY-MM" roughly when it was made (used for sorting)
 //    frame    optional. true = open inside the portfolio with a "Portfolio" back bar,
@@ -95,7 +97,7 @@ window.PORTFOLIO = {
     { id: "ez-message", name: "EZ-Message", url: "https://junkerfamily.github.io/EZ_Message/", repo: "https://github.com/junkerfamily/EZ_Message", group: "family", host: "github", private: true,
       blurb: "Simple messaging made for my special-needs son.", tags: ["messaging", "accessibility"], star: true, added: "2026-10" },
     { id: "bp-journal", name: "BP Journal", url: "https://bp-journal.junkerfamily.workers.dev", repo: "https://github.com/junkerfamily/BloodPressureJournal", group: "family", host: "cloudflare", private: true,
-      blurb: "Snap a photo of your blood pressure monitor — AI reads the numbers, then track the trend.", tags: ["health", "blood pressure", "camera", "ai", "chart"], added: "2026-11" },
+      blurb: "Snap a photo of your blood pressure monitor — AI reads the numbers, then track the trend.", tags: ["health", "blood pressure", "camera", "ai", "chart"], daily: true, added: "2026-11" },
     { id: "honeydo", name: "HoneyDo", url: "https://junkerfamily.github.io/HoneyDo/", repo: "https://github.com/junkerfamily/HoneyDo", group: "family", host: "github", private: true,
       blurb: "Quick and easy honey-do list for couples.", tags: ["tasks"], added: "2026-01" },
     { id: "eventmaker", name: "EventMaker", url: "https://junkerfamily.github.io/EventMaker/", repo: "https://github.com/junkerfamily/EventMaker", group: "family", host: "github",
@@ -103,7 +105,7 @@ window.PORTFOLIO = {
     { id: "dvd-library", name: "DVD Library", url: "", repo: "https://github.com/junkerfamily/dvd-library", group: "family", host: "cloudflare", private: true, hidden: true,
       blurb: "Phone app for cataloguing DVDs by barcode, with eBay values. (Add its workers.dev link.)", tags: ["movies", "barcode"], added: "2026-11" },
     { id: "daily-readings", name: "Catholic Readings Explainer", url: "", repo: "https://github.com/junkerfamily/DailyReadings", group: "family", host: "github", private: true, hidden: true,
-      blurb: "Daily Mass readings with AI explanations at different grade levels.", tags: ["faith", "ai"], added: "2025-12" },
+      blurb: "Daily Mass readings with AI explanations at different grade levels.", tags: ["faith", "ai"], daily: true, added: "2025-12" },
 
     // ── Tools & Calculators ──
     { id: "ira-moves", name: "IRA Moves", url: "https://junkerfamily.github.io/IRA-Moves/", repo: "https://github.com/junkerfamily/IRA-Moves", group: "tools", host: "github",
