@@ -13,8 +13,8 @@
 //    private  true if the repo is private (shows a lock in My view)
 //    hidden   true to keep it out of the shared view (still shows in My view)
 //    star     true to feature it at the top
-//    daily    true for things you use every day — they show under the "Daily" chip,
-//             whatever group they're in. (Open the page with #daily to land there.)
+//    daily    true for things you use every day — they show under the "Fave" chip,
+//             whatever group they're in. (Open the page with #fave to land there.)
 //    todo     a note to yourself (shown only in My view)
 //    added    "YYYY-MM" roughly when it was made (used for sorting)
 //    frame    optional. true = open inside the portfolio with a "Portfolio" back bar,
