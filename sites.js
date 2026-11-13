@@ -110,6 +110,8 @@ window.PORTFOLIO = {
       blurb: "Daily Mass readings with AI explanations at different grade levels.", tags: ["faith", "ai"], daily: true, added: "2025-12" },
 
     // ── Tools & Calculators ──
+    { id: "scan-to-pdf", name: "Scan to PDF", url: "https://junkerfamily.github.io/scan-to-pdf/", repo: "https://github.com/junkerfamily/scan-to-pdf", group: "tools", host: "github",
+      blurb: "Snap up to 10 pages with your phone, crop them, and save or email the PDF.", tags: ["scanner", "pdf", "camera", "email"], added: "2026-11" },
     { id: "ira-moves", name: "IRA Moves", url: "https://junkerfamily.github.io/IRA-Moves/", repo: "https://github.com/junkerfamily/IRA-Moves", group: "tools", host: "github",
       blurb: "Would moving money out of an IRA save money, short and long term?", tags: ["finance", "calculator"], added: "2025-09" },
     { id: "pictocalc", name: "PictoCalc", url: "https://pictocalc.pages.dev", repo: "https://github.com/junkerfamily/PictoCalc", group: "tools", host: "cloudflare",
