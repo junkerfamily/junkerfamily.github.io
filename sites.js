@@ -105,7 +105,7 @@ window.PORTFOLIO = {
     { id: "eventmaker", name: "EventMaker", url: "https://junkerfamily.github.io/EventMaker/", repo: "https://github.com/junkerfamily/EventMaker", group: "family", host: "github",
       blurb: "Voice calendar — say it, and it becomes an event.", tags: ["calendar", "voice"], added: "2025-09" },
     { id: "one-stop-recipes", name: "One Stop Recipes", url: "https://one-stop-recipes.pages.dev", group: "family", host: "cloudflare",
-      blurb: "122 recipes with ten ingredients or fewer — search, filter and print a recipe card.", tags: ["recipes", "cooking", "food", "baking"], added: "2026-11" },
+      blurb: "136 recipes with ten ingredients or fewer — search, print a recipe card, and build a shopping list by aisle.", tags: ["recipes", "cooking", "food", "baking"], added: "2026-11" },
     { id: "dvd-library", name: "DVD Library", url: "", repo: "https://github.com/junkerfamily/dvd-library", group: "family", host: "cloudflare", private: true, hidden: true,
       blurb: "Phone app for cataloguing DVDs by barcode, with eBay values. (Add its workers.dev link.)", tags: ["movies", "barcode"], added: "2026-11" },
     { id: "daily-readings", name: "Catholic Readings Explainer", url: "", repo: "https://github.com/junkerfamily/DailyReadings", group: "family", host: "github", private: true, hidden: true,
