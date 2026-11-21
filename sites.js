@@ -74,7 +74,7 @@ window.PORTFOLIO = {
       blurb: "Coloring pictures by theme. Lives on this Mac only (Projects/PaintTalk).", tags: ["art", "coloring"] },
 
     // ── Games & Puzzles ──
-    { id: "santa-trainer", name: "The Santa Trainer", url: "https://the-santa-trainer.junkerfamily.workers.dev", group: "games", host: "cloudflare",
+    { id: "santa-trainer", name: "The Santa Trainer", url: "https://the-santa-trainer.junkerfamily.workers.dev", repo: "https://github.com/junkerfamily/TheSantaTrainer", group: "games", host: "cloudflare", private: true,
       blurb: "Fly Santa's sleigh over the rooftops, grab treats, dodge birds and planes, and land on the candy cane house.", tags: ["christmas", "santa", "side-scroller", "arcade"], added: "2026-11" },
     { id: "saving-sabrina", name: "Saving Sabrina", url: "https://junkerfamily.github.io/SaveThePrincess/", repo: "https://github.com/junkerfamily/SaveThePrincess", group: "games", host: "github",
       blurb: "Climb a six-floor tower of crate, hammer, gargoyle and cauldron puzzles to rescue the princess.", tags: ["puzzle", "princess", "tower", "sokoban"], added: "2026-11" },
