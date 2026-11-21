@@ -56,6 +56,8 @@ window.PORTFOLIO = {
       blurb: "Wild West murder mystery — magnifying glass, a notepad, and a barman who cannot lie.", tags: ["western", "mystery", "detective", "puzzle"], added: "2026-11" },
     { id: "fix-santas-sleigh", name: "Fix Santa's Sleigh", url: "https://fix-santas-sleigh.pages.dev", group: "escape", host: "cloudflare",
       blurb: "Beat the elves at their games and win back the sleigh's parts before midnight.", tags: ["christmas", "elves", "puzzle"], added: "2026-11" },
+    { id: "missing-magician", name: "The Missing Magician's Dressing Room", url: "https://missing-magician.pages.dev", group: "escape", host: "cloudflare",
+      blurb: "A famous magician vanished mid-show — recreate the final illusion to escape.", tags: ["magic", "theatre", "puzzle"], added: "2026-11" },
     { id: "escape-room-trainer", name: "Escape Room Trainer", url: "https://junkerfamily.github.io/escape-room-trainer/", repo: "https://github.com/junkerfamily/escape-room-trainer", group: "escape", host: "github",
       blurb: "Quick-fire training: ciphers, locks, strategy and themes, with puzzles and hints.", tags: ["puzzle", "ciphers", "training"], added: "2026-11" },
 
