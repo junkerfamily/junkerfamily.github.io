@@ -58,6 +58,8 @@ window.PORTFOLIO = {
       blurb: "Beat the elves at their games and win back the sleigh's parts before midnight.", tags: ["christmas", "elves", "puzzle"], added: "2026-11" },
     { id: "missing-magician", name: "The Missing Magician's Dressing Room", url: "https://missing-magician.pages.dev", group: "escape", host: "cloudflare",
       blurb: "A famous magician vanished mid-show — recreate the final illusion to escape.", tags: ["magic", "theatre", "puzzle"], added: "2026-11" },
+    { id: "holiday-host-kit", name: "Holiday Host Kit", url: "https://holiday-escape-party.pages.dev", repo: "https://github.com/junkerfamily/holiday-escape-party", group: "escape", host: "cloudflare", private: true,
+      blurb: "Host a Christmas escape room party — two rooms, printables, and free previews to try first.", tags: ["christmas", "party", "host", "printable", "puzzle"], added: "2026-11" },
     { id: "escape-room-trainer", name: "Escape Room Trainer", url: "https://junkerfamily.github.io/escape-room-trainer/", repo: "https://github.com/junkerfamily/escape-room-trainer", group: "escape", host: "github",
       blurb: "Quick-fire training: ciphers, locks, strategy and themes, with puzzles and hints.", tags: ["puzzle", "ciphers", "training"], added: "2026-11" },
 
