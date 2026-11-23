@@ -120,8 +120,8 @@ window.PORTFOLIO = {
       blurb: "Daily Mass readings with AI explanations at different grade levels.", tags: ["faith", "ai"], daily: true, added: "2025-12" },
 
     // ── Tools & Calculators ──
-    { id: "cold-blast", name: "The Cold Blast", url: "https://junkerfamily.github.io/cold-blast/", repo: "https://github.com/junkerfamily/cold-blast", group: "tools", host: "github",
-      blurb: "Hands-on physics demos: blast squeezed oxygen into a vacuum, or pump a hydraulic jack.", tags: ["science", "physics", "simulation", "oxygen", "hydraulics", "pressure"], added: "2026-11" },
+    { id: "cold-blast", name: "Physics Playground", url: "https://junkerfamily.github.io/cold-blast/", repo: "https://github.com/junkerfamily/cold-blast", group: "tools", host: "github",
+      blurb: "Hands-on physics demos: blast cold oxygen, pump a hydraulic jack, and run a siphon.", tags: ["science", "physics", "simulation", "oxygen", "hydraulics", "pressure", "siphon", "water"], added: "2026-11" },
     { id: "scan-to-pdf", name: "Scan to PDF", url: "https://junkerfamily.github.io/scan-to-pdf/", repo: "https://github.com/junkerfamily/scan-to-pdf", group: "tools", host: "github",
       blurb: "Snap up to 10 pages with your phone, crop them, and save or email the PDF.", tags: ["scanner", "pdf", "camera", "email"], added: "2026-11" },
     { id: "ira-moves", name: "IRA Moves", url: "https://junkerfamily.github.io/IRA-Moves/", repo: "https://github.com/junkerfamily/IRA-Moves", group: "tools", host: "github",
