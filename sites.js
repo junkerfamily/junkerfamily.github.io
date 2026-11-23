@@ -121,7 +121,7 @@ window.PORTFOLIO = {
 
     // ── Tools & Calculators ──
     { id: "cold-blast", name: "The Cold Blast", url: "https://junkerfamily.github.io/cold-blast/", repo: "https://github.com/junkerfamily/cold-blast", group: "tools", host: "github",
-      blurb: "Squeeze oxygen until it heats up, then blast it into a vacuum and watch it turn cold.", tags: ["science", "physics", "simulation", "oxygen"], added: "2026-11" },
+      blurb: "Hands-on physics demos: blast squeezed oxygen into a vacuum, or pump a hydraulic jack.", tags: ["science", "physics", "simulation", "oxygen", "hydraulics", "pressure"], added: "2026-11" },
     { id: "scan-to-pdf", name: "Scan to PDF", url: "https://junkerfamily.github.io/scan-to-pdf/", repo: "https://github.com/junkerfamily/scan-to-pdf", group: "tools", host: "github",
       blurb: "Snap up to 10 pages with your phone, crop them, and save or email the PDF.", tags: ["scanner", "pdf", "camera", "email"], added: "2026-11" },
     { id: "ira-moves", name: "IRA Moves", url: "https://junkerfamily.github.io/IRA-Moves/", repo: "https://github.com/junkerfamily/IRA-Moves", group: "tools", host: "github",
