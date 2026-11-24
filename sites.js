@@ -121,7 +121,7 @@ window.PORTFOLIO = {
 
     // ── Tools & Calculators ──
     { id: "cold-blast", name: "Physics Playground", url: "https://junkerfamily.github.io/physics-playground/", repo: "https://github.com/junkerfamily/physics-playground", group: "tools", host: "github",
-      blurb: "Hands-on physics demos: cold gas blasts, hydraulics, siphons, and time relativity.", tags: ["science", "physics", "simulation", "oxygen", "hydraulics", "pressure", "siphon", "water", "relativity", "time dilation"], added: "2026-11" },
+      blurb: "Hands-on physics demos: cold gas blasts, hydraulics, siphons, time relativity, and rockets.", tags: ["science", "physics", "simulation", "oxygen", "hydraulics", "pressure", "siphon", "water", "relativity", "time dilation", "rocket", "momentum"], added: "2026-11" },
     { id: "scan-to-pdf", name: "Scan to PDF", url: "https://junkerfamily.github.io/scan-to-pdf/", repo: "https://github.com/junkerfamily/scan-to-pdf", group: "tools", host: "github",
       blurb: "Snap up to 10 pages with your phone, crop them, and save or email the PDF.", tags: ["scanner", "pdf", "camera", "email"], added: "2026-11" },
     { id: "ira-moves", name: "IRA Moves", url: "https://junkerfamily.github.io/IRA-Moves/", repo: "https://github.com/junkerfamily/IRA-Moves", group: "tools", host: "github",
