@@ -60,7 +60,7 @@ window.PORTFOLIO = {
       blurb: "A famous magician vanished mid-show — recreate the final illusion to escape.", tags: ["magic", "theatre", "puzzle"], added: "2026-11" },
     { id: "haunted-carnival", name: "The Haunted Carnival", url: "https://haunted-carnival.pages.dev", group: "escape", host: "cloudflare",
       blurb: "Trapped after closing time: fix the rides, beat the rigged games, escape before the lights die.", tags: ["halloween", "carnival", "puzzle"], added: "2026-11" },
-    { id: "underwater-research-base", name: "The Underwater Research Base", url: "https://underwater-research-base.pages.dev", group: "escape", host: "cloudflare",
+    { id: "underwater-research-base", name: "The Underwater Research Base", url: "https://underwater-research-base.pages.dev", repo: "https://github.com/junkerfamily/underwater-research-base", group: "escape", host: "cloudflare", private: true,
       blurb: "A deep-sea station is flooding: seal the hatches, restore power, and reach the surface.", tags: ["ocean", "sci-fi", "puzzle"], added: "2026-11" },
     { id: "holiday-host-kit", name: "Holiday Host Kit", url: "https://holiday-escape-party.pages.dev", repo: "https://github.com/junkerfamily/holiday-escape-party", group: "escape", host: "cloudflare", private: true,
       blurb: "Host a Christmas escape room party — two rooms, printables, and free previews to try first.", tags: ["christmas", "party", "host", "printable", "puzzle"], added: "2026-11" },
